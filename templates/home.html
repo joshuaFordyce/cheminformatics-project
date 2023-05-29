@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>ML Powered Cheminformatics Web Application</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+  
+</head>
+
+<body style="background:#171c28 ;">
+ <div class="login">
+	<h1>Pervoskite Formation Prediction</h1>
+    <p> 1 ~ crystals at all, 2 ~ traces of pervosite, 3 ~ some crystals formed, 4 ~ full crystal formation </p>
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="rate" placeholder="rate" required="required" />
+        <input type="text" name="_rxn_M_acid" placeholder="_rxn_M_acid" required="required" />
+		<input type="text" name="_rxn_M_organic" placeholder="_rxn_M_organic" required="required" />
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict Crystal Formation Rates</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+</body>
+</html>
+
+
